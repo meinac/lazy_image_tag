@@ -1,0 +1,23 @@
+//= require jquery.lazyload.min.js
+
+$(document).ready(function(){
+  var image_id = 0;
+  $('a.lazy-image-link').each(function(){
+    image_id++;
+    var data_height = $(this).attr('data-height');
+    var data_width = $(this).attr('data-width');
+    var data_id = $(this).attr('data-id');
+    var id = "lazy-image" + image_id;
+    $(this).replaceWith('<img src="<%= asset_path("blank.png") %>" alt="' + $(this).html() + '" data-original="' + $(this).attr('href') + '" class="lazy ' + $(this).attr('class') + '" id="' + id + '"/>')
+    if(data_height != null)
+      $('#' + id).attr('height', data_height);
+    if(data_width != null)
+      $('#' + id).attr('width', data_width);
+    if(data_id != null)
+      $('#' + id).attr('id', data_id);
+  });
+
+  $('img.lazy').lazyload({
+    'effect': 'fadeIn'
+  });
+});
