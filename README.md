@@ -22,10 +22,13 @@ Or install it yourself as:
 
 ## Configuration
 In your application.rb file or environment(s) initializer file you can set configurations easly like the above
+
     config.lazy_image_tag.use_default = true # with this configuration image_tag helper becomes lazy_image_tag helper
+
     .
     .
     .
+    
     config.lazy_image_tag.js_disabled = :noscript # with this configuration users will see normal image tag if their browser does not support javascript or disabled manually
 
 ## Valid Config Options
