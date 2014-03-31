@@ -26,7 +26,7 @@ module LazyImageTag
       custom_opts[:data] ||= {}
       custom_opts[:data][:original] = source = path_to_image(source)
       custom_opts[:class].blank? ? custom_opts[:class] = "lazy" : custom_opts[:class] << " lazy"
-      custom_source = path_to_image("blank.png")
+      custom_source = path_to_image("lazy-image-tag/blank.png")
       content = image_tag(custom_source, custom_opts)
       content << content_tag(:noscript, image_tag(source, options)) if Rails.application.config.lazy_image_tag.js_disabled == :noscript
       content_tag(:div, content, container_options(options))

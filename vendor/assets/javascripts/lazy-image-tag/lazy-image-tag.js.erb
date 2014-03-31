@@ -1,4 +1,4 @@
-//= require jquery.lazyload.min.js
+//= require lazy-image-tag/jquery.lazyload.min.js
 
 $(document).ready(function(){
   var image_id = 0;
@@ -8,7 +8,7 @@ $(document).ready(function(){
     var data_width = $(this).attr('data-width');
     var data_id = $(this).attr('data-id');
     var id = "lazy-image" + image_id;
-    $(this).replaceWith('<img src="<%= asset_path("blank.png") %>" alt="' + $(this).html() + '" data-original="' + $(this).attr('href') + '" class="lazy ' + $(this).attr('class') + '" id="' + id + '"/>')
+    $(this).replaceWith('<img src="<%= asset_path("lazy-image-tag/blank.png") %>" alt="' + $(this).html() + '" data-original="' + $(this).attr('href') + '" class="lazy ' + $(this).attr('class') + '" id="' + id + '"/>')
     if(data_height != null)
       $('#' + id).attr('height', data_height);
     if(data_width != null)
